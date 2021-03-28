@@ -1,0 +1,211 @@
+.section-emtusa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: var(--warning);
+}
+
+.logo-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.logo-emtusa {
+    max-width: var(--logo-max-size);
+    height: var(--logo-height);
+}
+
+.burguer {
+    display: none;
+    cursor: pointer;
+}
+
+.burguer div {
+    width: 25px;
+    height: 2px;
+    background-color: rgb(225,225,225);
+    border-radius: 4px;
+    margin: 5px;
+}
+
+@media screen and (max-width: 887px) {
+    .logo-1, .logo-2, .section-emtusa {
+        z-index: 3;
+    }
+
+    .nav-links {
+        position: absolute;
+        flex-direction: column;
+        top: 50px;
+        background: var(--emtusa-blue);
+        width: 100% !important;
+        transform: translateY(-150%);
+        transition: transform 0.5s ease-in;
+        z-index: -1;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burguer {
+        display: block;
+        padding: 0rem 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --size-logo: 120px;
+        --padding-left: 0.5rem;
+        --pading-top: 0.75rem;
+    }
+
+    .logo-emtusa {
+        padding-top: var(--padding-top);
+        padding-left: var(--padding-left);
+        max-width: var(--size-logo);
+        height: auto;
+    }
+
+    .logo-ayuntamiento {
+        padding-left: var(--padding-left);
+        max-width: var(--size-logo);
+        height: auto;
+    }
+
+    #div-tarjetas {
+        width: 400px !important;
+    }
+}
+
+
+.nav-active {
+    transform: translateY(-10%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    } to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes h1FadeIn {
+    from {
+        padding-top: 10px;
+    } to {
+        padding-top: 100px;
+    }
+}
+@keyframes h1FadeOut {
+    from {
+        padding-top: 100px;
+    } to {
+        padding-top: 10px;
+    }
+}
+
+.toggle .line1 {
+    background: rgb(69,69,69);
+}
+.toggle .line2 {
+    background: rgb(69,69,69);
+}
+.toggle .line3 {
+    background: rgb(69,69,69);
+}
+
+.logo-ayuntamiento {
+    max-width: var(--logo-max-size);
+    height: var(--logo-height);
+    flex: 3;
+    padding: 0rem 1rem 0rem 0rem;
+}
+
+.nav-links {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    list-style: none;
+}
+
+.nav-links li {
+    padding: 0rem 0.5rem 0rem 0.5rem;
+}
+
+.nav-links li a {
+    font-size: 14px;
+    font-weight: ligther;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link {
+    padding: 0.5rem 0.5rem;
+}
+
+div>a>img {
+    width: 120px;
+}
+
+li>a>i {
+    padding: 0rem 0.5rem;
+}
+
+li>a:hover {
+    color: rgb(50, 50, 50);
+}
+
+#info-usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.informacion-usuario {
+    margin: 0 auto;
+    height: 18px;
+    border-radius: 0px 0px 14px 14px;
+    background: var(--warning);
+    text-align: center;
+    /*box-shadow: 0px 0px 8px rgb(140, 140, 140);*/
+    z-index: -1;
+}
+
+span>div {
+    display: flex;
+    font-size: 12px;
+    color: white;
+    padding: 0rem 1rem;
+}
+
+span>div>p {
+    padding: 0rem 0.25rem;
+}

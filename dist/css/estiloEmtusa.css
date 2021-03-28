@@ -1,0 +1,298 @@
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --emtusa-blue: #00a3f6;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /* Variables */
+    --logo-max-size: 150px;
+    --logo-padding-top: 0.85rem;
+    --logo-height: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    padding: 1rem 0rem;
+}
+
+footer {
+    overflow: unset;
+    clear: both;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 2rem;
+    z-index: 3;
+}
+.card {
+    position: initial;
+    left: 0%;
+}
+
+.card-header {
+    background: var(--emtusa-blue) !important;
+}
+
+.tarjetaOculto {
+    visibility: hidden;
+    display: none;
+}
+
+#div-tarjetas {
+    width: 500px !important;
+}
+
+
+.content-header {
+    padding: 0.5rem 0.5rem;
+}
+
+.botonOculto {
+    visibility: hidden;
+    display: none;
+}
+
+.oculto {
+    visibility: hidden;
+    display: none;
+}
+
+.tarjetaVisible {
+    visibility: initial !important;
+    display: inherit !important;
+}
+
+.diaLibre {
+    background-color: #28a745;
+}
+
+.diaConSolicitudes {
+    background-color: #ffc107;
+}
+
+.diaOcupado {
+    background-color: #dc3545;
+}
+
+.diaPedido {
+    background-color: var(--emtusa-blue);
+}
+
+.botonMenu {
+    width: 100%;
+}
+
+#divBotonEnviar {
+    height: 0;
+    overflow: hidden;
+}
+
+.botonEnviar {
+    background: var(--emtusa-blue);
+    color: white;
+    border: 0;
+    margin-bottom: 20px !important;
+}
+
+.botonEnviar:hover {
+    background: var(--emtusa-blue);
+    color: rgb(50, 50, 50);
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem !important;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+    }
+
+    #divBotonEnviar {
+        height: 0;
+        overflow: hidden;
+    }
+
+    .button-mobile {
+        padding-bottom: 70px;
+    }
+
+    .botonEnviar {
+        width: 50vw !important;    
+    }
+}
+
+#divFooter {
+    position: relative;
+    color: white;
+    background-color: var(--warning);
+    font-size: 12px;
+    text-align: center;
+    font-weight: 400;
+    padding: 0.75rem 1.25rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom: 0 solid rgba(0, 0, 0, 0.125);
+    height: 50px;
+    padding-top: 8px;
+}
+
+#inputMotivoLicencia,
+#inputDuracion {
+    visibility: hidden;
+    display: none;
+}
+
+#Contenedor_Duracion {
+    height: 0;
+    overflow: hidden;
+    max-height: 225px;
+}
+
+#Contenedor_Motivo {
+    max-height: 160px;
+}
+
+#divCalendario, #divCalendario2 {
+    height: 0;
+    overflow: hidden;
+}
+
+/* PRUEBAS */
+.embedded-daterangepicker .daterangepicker::before,
+.embedded-daterangepicker .daterangepicker::after {
+  display: none;
+}
+.embedded-daterangepicker .daterangepicker {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  float: left;
+  width: 240px;
+  margin-top: 0;
+  z-index: 0;
+}
+.embedded-daterangepicker .daterangepicker .drp-calendar {
+  width: 50%;
+  max-width: 50%;
+}
+
+#etiquetas {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+div[id="contentCalendario2"]>label {
+    padding-right: 1.5rem;
+}
+
+div[id="div-select-horas"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* POPUP */
+.aviso_popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.contenido-popup {
+    background-color: #fefefe;
+    margin: 200px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 500px;
+}
+
+@media screen and (max-width:1024px) {
+    .contenido-popup {
+        width: 380px;
+    }
+}
+
+.contenido-popup p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+button[class="cerrar"] {
+    border-radius: 6px 6px 6px 6px;
+    padding: 0.25rem 0.5rem;
+    margin: 0rem 1rem;
+    border: 0;
+    box-shadow: 0px 0px 6px rgb(69,69,69);
+    background-color: var(--emtusa-blue);
+    color: white;
+}
+
+button[class="cerrar"]:hover {
+    color: black;
+}
+
+.contenido-popup div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+/* The Close Button */
+.close {
+    margin: 0 auto;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

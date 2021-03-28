@@ -1,0 +1,14 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^login$ login.php
+RewriteRule ^inicio$ index.php
+RewriteRule ^solicitudes$ solicitudes.php
+RewriteRule ^logout$ fragmentos/logout.php
+RewriteRule ^consultar-solicitudes$ consulta-solicitudes.php
+RewriteRule ^admin/modificar-dias$ admin-config.php
+#RewriteRule ^/$ prueba.php
+#RewriteRule ^(.*)$ index.php
