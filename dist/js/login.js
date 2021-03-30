@@ -10,7 +10,7 @@ function recibir_login() {
         success: function (data) {
             resultado = JSON.parse(data)["Resultado"];
 
-            if (resultado === '1') {
+            if (resultado === '1' || resultado === '2') {
                 window.location.href = './inicio';
             } else {
                 alert("Datos incorrectos, revíselos.");

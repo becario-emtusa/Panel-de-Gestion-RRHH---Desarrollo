@@ -6,7 +6,6 @@
             <img class="logo-emtusa" src="dist/img/emtusa-logo-cab.png" alt="logoEmtusa.png">
         </div>
         <ul class="nav-links">
-            <li><a href="/inicio" class="nav-link"><i class="fas fa-home"></i>Inicio</a></li>
             <li><a href="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i>Iniciar Sesión</a></li>
         </ul>
         <div class="burguer">

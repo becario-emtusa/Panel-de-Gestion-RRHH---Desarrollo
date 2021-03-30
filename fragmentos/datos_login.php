@@ -19,6 +19,15 @@ if ($resultado->Resultado == 1) {
     $_SESSION['Apellidos'] = $datos->Apellidos;
     $_SESSION['Departamento'] = $datos->Departamento;
     $_SESSION['Categoria'] = $datos->Categoria;
+} else if ($resultado->Resultado == 2) {
+    $statement = $conexion->getDatosPersonal($usuario);
+    $datos = $statement->fetch();
+
+    $_SESSION['login'] = 'ADMIN';
+    $_SESSION['Nombre'] = 'Administrador de';
+    $_SESSION['Apellidos'] = ucfirst($datos->Usuario);
+    $_SESSION['Departamento'] = ucfirst($datos->Usuario);
+    $_SESSION['Categoria'] = 'Administrador';
 };
 
 echo json_encode($resultado);
