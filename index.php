@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+include './fragmentos/redirect.php';
 include './fragmentos/cabecera.php';
 ?>
 
@@ -16,9 +18,7 @@ include './fragmentos/cabecera.php';
 <body>
     <?php
     include './fragmentos/menu.php';
-    ?>
 
-    <?php
     if (isset($_SESSION['login'])) {
         if ($_SESSION['login'] == 'ADMIN') {
             include './fragmentos/inicio-admin.php';
@@ -26,12 +26,11 @@ include './fragmentos/cabecera.php';
             include './fragmentos/inicio-usuario.php';
         }
     }
-    ?>
 
-    <?php
     include './fragmentos/footer.php';
     ?>
 
+    <script src="../../dist/js/inicio-admin.js"></script>
     <script src="../../dist/js/menu.js"></script>
 </body>
 

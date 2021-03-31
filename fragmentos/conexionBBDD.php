@@ -135,6 +135,15 @@ class conexionBBDD
         return $this->statement;
     }
 
+    /* MARZO 2021 */
+    public function getResumenAdmin($departamento, $fechaMaxima = 'NULL')
+    {
+        $consulta = "exec PrgResumenAdministradores '" . $departamento . "', " . $fechaMaxima;
+        $this->statement = $this->ejecutarConsulta($consulta);
+
+        return $this->statement;
+    }
+
     /* Función que devuelve los Motivos de una Petición desde la BBDD */
     public function getMotivosPeticion()
     {
