@@ -24,7 +24,7 @@ include './fragmentos/cabecera.php';
             <div class="col-xs-4 col-sm-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Datos del peticionario</h3>
+                        <h3 class="card-title">Datos Personales</h3>
                     </div>
                     <form role="form">
                         <div class="card-body">

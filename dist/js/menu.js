@@ -11,12 +11,16 @@ const navSlide = () => {
 
         // Animate Links
         navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-                header.style.animation = `h1FadeOut 0.5s ease backwards ${index / 5 - 0.25}s`;
-            } else {
-                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 5 + 0.5}s`;
-                header.style.animation = `h1FadeIn 0.5s ease forwards ${index / 5 - 0.25}s`;
+            try {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                    header.style.animation = `h1FadeOut 0.5s ease backwards ${index / 5 - 0.25}s`;
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 5 + 0.5}s`;
+                    header.style.animation = `h1FadeIn 0.5s ease forwards ${index / 5 - 0.25}s`;
+                }
+            } catch (e) {
+                //
             }
         });
 
