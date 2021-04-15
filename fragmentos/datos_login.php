@@ -3,11 +3,11 @@ require_once("./conexionBBDD.php");
 session_start();
 $usuario = $_POST["usuario"];
 $password = md5($_POST["password"]);
+$name = "emtusa-huelva";
+$value = $password;
 
 $conexion = new conexionBBDD();
-
 $statement = $conexion->comprobarLogin($usuario, $password);
-
 $resultado = $statement->fetch();
 
 if ($resultado->Resultado == 1) {
@@ -19,6 +19,10 @@ if ($resultado->Resultado == 1) {
     $_SESSION['Apellidos'] = $datos->Apellidos;
     $_SESSION['Departamento'] = $datos->Departamento;
     $_SESSION['Categoria'] = $datos->Categoria;
+
+    /* La duración de la cookie es en segundos.
+       La duración será de 36 horas. */
+    setcookie($name, $usuario . ':' . $value, time() + 3600 * 36, '/');
 } else if ($resultado->Resultado == 2) {
     $statement = $conexion->getDatosPersonal($usuario);
     $datos = $statement->fetch();
@@ -28,6 +32,7 @@ if ($resultado->Resultado == 1) {
     $_SESSION['Apellidos'] = ucfirst($datos->Usuario);
     $_SESSION['Departamento'] = ucfirst($datos->Usuario);
     $_SESSION['Categoria'] = 'Administrador';
+    setcookie($name, $usuario . ':' . $value, time() + 3600 * 336, '/');
 };
 
 echo json_encode($resultado);

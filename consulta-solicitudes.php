@@ -36,7 +36,6 @@ include './fragmentos/cabecera.php';
             <div class="solicitudes">
 
             </div>
-
         </div>
 
         <div class="aviso_popup">

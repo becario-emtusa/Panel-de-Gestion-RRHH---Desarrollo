@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link rel="icon" href="/images/icon.ico" class="image/x-icon">
+  <link rel="icon" href="/dist/img/icon.ico" class="image/x-icon">
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a348661f33.js" crossorigin="anonymous"></script>
