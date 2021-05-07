@@ -7,9 +7,9 @@
         </div>
         <ul class="nav-links">
             <li><a href="/inicio" class="nav-link"><i class="fas fa-home"></i>Inicio</a></li>
-            <li><a href="/solicitudes" class="nav-link"><i class="fas fa-edit"></i>Crear Solicitudes</a></li>
-            <li><a href="/consultar-solicitudes" class="nav-link"><i class="fas fa-search"></i>Consultar Solicitudes</a></li>
-            <li><a href="/admin/modificar-dias" class="nav-link"><i class="fas fa-search"></i>Gestión Días</a></li>
+            <li><a href="/admin/crear-solicitudes" class="nav-link"><i class="fas fa-edit"></i>Crear Solicitudes</a></li>
+            <li><a href="/consultar-solicitudes" class="nav-link"><i class="fas fa-search"></i>Consultar Solicitud</a></li>
+            <li><a href="/admin/modificar-dias" class="nav-link"><i class="fas fa-exchange-alt"></i>Modificar Días</a></li>
             <li><a href="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i>Salir</a></li>
         </ul>
         <div class="burguer">

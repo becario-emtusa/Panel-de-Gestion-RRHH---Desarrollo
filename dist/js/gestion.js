@@ -30,7 +30,7 @@ function get_num_dias() {
     $.ajax({
         type: "POST",
         data: dataString,
-        url: '/fragmentos/getDiasMod.php',
+        url: '/files/getters/getDiasMod.php',
         success: function (data) {
             try {
                 var json_obj = JSON.parse(data);
@@ -90,7 +90,7 @@ function modificar_dia() {
     $.ajax({
         type: "POST",
         data: dataString,
-        url: '/fragmentos/getDiasMod.php',
+        url: '/files/getters/getDiasMod.php',
         success: function (data) {
             try {
                 var json_obj = JSON.parse(data);

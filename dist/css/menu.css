@@ -1,9 +1,8 @@
 .section-emtusa {
     display: flex;
-    align-items: center;
     justify-content: center;
     height: 50px;
-    background: var(--warning);
+    background: var(--emtusa-blue);
 }
 
 .logo-1 {
@@ -179,7 +178,7 @@ li>a:hover {
     margin: 0 auto;
     height: 18px;
     border-radius: 0px 0px 14px 14px;
-    background: var(--warning);
+    background: var(--emtusa-blue);
     text-align: center;
     z-index: -1;
 }

@@ -6,10 +6,4 @@
 
 <main>
     <img id="imgPortada" src="dist/img/portada.jpg"></img>
-
-    <?php
-    if (!isset($_SESSION['login'])) {
-        include './fragmentos/aviso-login.php';
-    }
-    ?>
 </main>

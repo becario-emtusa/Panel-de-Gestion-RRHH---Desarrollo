@@ -6,7 +6,7 @@ function recibir_login() {
     $.ajax({
         type: "POST",
         data: data_string,
-        url: './fragmentos/datos_login.php',
+        url: '/files/getters/getDatosLogin.php',
         success: function (data) {
             resultado = JSON.parse(data)["Resultado"];
 

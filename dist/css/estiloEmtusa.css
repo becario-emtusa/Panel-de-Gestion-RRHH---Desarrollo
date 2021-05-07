@@ -49,7 +49,17 @@ body {
 }
 
 h1 {
+    font-weight: bold;
+    text-align: center;
     padding: 1rem 0rem;
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding: 1rem 0rem;
+    text-align: center;
+    font-weight: bolder;
 }
 
 footer {
@@ -60,6 +70,12 @@ footer {
     padding-top: 2rem;
     z-index: 3;
 }
+
+footer > div > p {
+    margin: 0;
+    padding: 0;
+}
+
 .card {
     position: initial;
     left: 0%;
@@ -161,7 +177,7 @@ footer {
 #divFooter {
     position: relative;
     color: white;
-    background-color: var(--warning);
+    background-color: var(--emtusa-blue);
     font-size: 12px;
     text-align: center;
     font-weight: 400;
@@ -204,13 +220,8 @@ footer {
   top: auto !important;
   left: auto !important;
   float: left;
-  width: 240px;
   margin-top: 0;
   z-index: 0;
-}
-.embedded-daterangepicker .daterangepicker .drp-calendar {
-  width: 50%;
-  max-width: 50%;
 }
 
 #etiquetas {
@@ -238,7 +249,6 @@ div[id="div-select-horas"] {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
 

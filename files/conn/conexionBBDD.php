@@ -4,6 +4,28 @@
 //                 CREACIÓN DEL OBJETO                   //
 ///////////////////////////////////////////////////////////
 
+/*
+    Cambios:
+        Marzo v0.0:
+            - getListaDepartamentosAdmin()
+            - getListaLicenciasAdmin()
+            - getNumDiasMod()
+            - getSolicitudes()
+            - setAnulacion()
+            - comprobarLogin()
+            - getCalendarioCitas()
+            - getResumenAdmin()
+
+        Abril v0.1:
+            - getDatosSolicitud()
+            - getDatosCita()
+        
+        Mayo v0.1.1:
+            - insertarCita()
+            - getMotivosPeticion(): Modificado, recibe parámetro de administración.
+
+*/
+
 class conexionBBDD
 {
     private $conn;
@@ -55,10 +77,10 @@ class conexionBBDD
     }
 
     /* Función que devuelve el calendario de un usuario dado su DNI y el tipo de licencia solicitada */
-    public function getCalendarioUsuario($DNI, $tipoLicencia)
+    public function getCalendarioUsuario($DNI, $tipoLicencia, $administracion = 0)
     {
         /* Consulta */
-        $consulta = "exec PrgCalendarioLaboral '" . $DNI . "','" . $tipoLicencia . "'";
+        $consulta = "exec PrgCalendarioLaboral '" . $DNI . "','" . $tipoLicencia . "', '" . $administracion . "'";
         $this->statement = $this->ejecutarConsulta($consulta);
 
         return $this->statement;
@@ -136,28 +158,67 @@ class conexionBBDD
     }
 
     /* MARZO 2021 */
-    public function getResumenAdmin($departamento, $fechaMaxima = 'NULL')
+    public function getResumenAdmin($departamento, $fechaMaxima = 'NULL', $orden = 'fechaSolicitada')
     {
-        $consulta = "exec PrgResumenAdministradores '" . $departamento . "', " . $fechaMaxima;
+        if ($fechaMaxima != 'NULL') {
+            $consulta = "exec PrgResumenAdministradores '" . $departamento . "', '" . $fechaMaxima . "', '" . $orden . "'";
+        } else {
+            $consulta = "exec PrgResumenAdministradores '" . $departamento . "', " . $fechaMaxima . ", 'NULL'";
+        }
+        $this->statement = $this->ejecutarConsulta($consulta);
+
+        return $this->statement;
+    }
+
+    /* ABRIL 2021 */
+    public function getDatosSolicitud($num_solicitud)
+    {
+        $consulta = "exec PrgDatosSolicitud " . $num_solicitud;
+        $this->statement = $this->ejecutarConsulta($consulta);
+
+        return $this->statement;
+    }
+
+    /* ABRIL 2021 */
+    public function getDatosCita($fecha)
+    {
+        $consulta = "exec PrgDatosCitas '" . $fecha . "'";
+        $this->statement = $this->ejecutarConsulta($consulta);
+
+        return $this->statement;
+    }
+
+    /* MAYO 2021 */
+    public function insertarCita($tipo_licencia, $fecha, $numero_citas)
+    {
+        $consulta = "exec PrgLicenciasCreaCita " . $tipo_licencia . ",'" . $fecha . "'," . $numero_citas;
         $this->statement = $this->ejecutarConsulta($consulta);
 
         return $this->statement;
     }
 
     /* Función que devuelve los Motivos de una Petición desde la BBDD */
-    public function getMotivosPeticion()
+    /* MAYO 2021 */
+    public function getMotivosPeticion($administracion = 0)
     {
-        /* Consulta */
-        $consulta = "exec PrgTipoLicencia";
+        if ($administracion === 0) {
+            $consulta = "exec PrgTipoLicencia";
+        } else {
+            $consulta = "exec PrgTipoLicencia 1";
+        }
         $this->statement = $this->ejecutarConsulta($consulta);
 
         return $this->statement;
     }
 
-    public function insertarPeticion($DNI, $tipoLicencia, $fechaIni, $fechaFin, $tipoObjeto = PDO::FETCH_OBJ)
+    public function insertarPeticion($DNI, $tipoLicencia, $fechaIni, $fechaFin, $admin = 0, $tipoObjeto = PDO::FETCH_OBJ)
     {
         /* Consulta */
-        $consulta = "set nocount on; exec PrgSolicitud '" . $DNI . "', " . $tipoLicencia . " , '" . $fechaIni . "', '" . $fechaFin . "'";
+        if ($admin == 0) {
+            $consulta = "set nocount on; exec PrgSolicitud '" . $DNI . "', " . $tipoLicencia . " , '" . $fechaIni . "', '" . $fechaFin . "'";
+        } else {
+            $consulta = "set nocount on; exec PrgSolicitud '" . $DNI . "', " . $tipoLicencia . " , '" . $fechaIni . "', '" . $fechaFin . "', " . "1";
+        }
         $this->statement = $this->ejecutarConsulta($consulta, $tipoObjeto);
 
         return $this->statement;

@@ -4,7 +4,7 @@ if (!isset($_SESSION['login'])) {
 } else {
     switch ($_SESSION['login']) {
         case 'ADMIN':
-            include 'menu-administrador.php';
+            include 'menu-sidebar.php';
             break;
         default:
             include 'menu-usuario.php';

@@ -13,6 +13,7 @@ header {
     align-items: center;
     justify-items: center;
     margin: 0 auto;
+    padding: 0.5rem 0.5rem;
 }
 
 .titulo {

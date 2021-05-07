@@ -1,3 +1,10 @@
+/*
+
+    Cambios:
+        - v0.1: Eliminado margin-left iconos menú.
+
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -5,19 +12,61 @@
 }
 
 body {
+    overflow-x: hidden;
+}
+
+body > * {
+    flex-shrink: 0;
+}
+
+body>div {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateX(90px);
+}
+
+body>main, body>header {
+    transform: translateX(90px);
 }
 
 .section-emtusa {
     position: absolute;
-    top: 0;
     left: 0;
-    padding: 1rem 2rem;
     background-color: var(--emtusa-blue);
-    height: 100vh;
+    height: 100%;
     z-index: 4;
+    display: flex;
+    justify-content: center;
+}
+
+.informacion-usuario {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    bottom: 0;
+    margin: 1rem 0rem;
+}
+
+nav {
+    font-size: 12px;
+}
+
+.nav-links {
+    padding: 0;
+}
+
+nav li a i {
+    width: 20px;
+    transition: 0.3s;
+}
+
+nav li a {
+    color: white;
 }
 
 ul {
@@ -25,16 +74,18 @@ ul {
 }
 
 .section-emtusa img {
+    padding: 1rem;
     width: 150px;
 }
 
-div[class="logo-1"], div[class="logo-2"] {
+div[class="logo-1"] {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-div[class="logo-2"] {
-    position: absolute;
-    bottom: 0;
+li:hover {
+    border-radius: 60px;
+    background: rgba(230, 230, 230);
+    transition: 0.5s;
 }

@@ -2,8 +2,8 @@
 <html lang="es">
 
 <?php
-include 'fragmentos/redirect.php';
-include 'fragmentos/cabecera.php';
+include 'files/parts/redirect.php';
+include 'files/parts/cabecera.php';
 ?>
 
 <head>
@@ -13,7 +13,7 @@ include 'fragmentos/cabecera.php';
 
 <body onload="get_num_dias();">
     <?php
-    include 'fragmentos/menu.php';
+    include 'files/parts/menu.php';
     ?>
     <!-- Header -->
     <header class="content-header">
@@ -30,7 +30,7 @@ include 'fragmentos/cabecera.php';
                     <select name="selectDepartamentos" id="selectDepartamentos" class="selectDepart" value="-1">
                         <?php
                         /* Necesario incluir el fichero de conexion a la BBDD */
-                        require_once("./fragmentos/conexionBBDD.php");
+                        require_once("files/conn/conexionBBDD.php");
 
                         /* Creamos la conexion y lanzamos la consulta previamente diseñada */
                         $conexion = new conexionBBDD();
@@ -55,7 +55,7 @@ include 'fragmentos/cabecera.php';
                     <select name="selectLicencias" id="selectLicencias" class="selectLicencias" value="-1">
                         <?php
                         /* Necesario incluir el fichero de conexion a la BBDD */
-                        require_once("./fragmentos/conexionBBDD.php");
+                        require_once("files/conn/conexionBBDD.php");
 
                         /* Creamos la conexion y lanzamos la consulta previamente diseñada */
                         $conexion = new conexionBBDD();
@@ -110,7 +110,7 @@ include 'fragmentos/cabecera.php';
     <div class="spacer"></div>
 
     <?php
-    include 'fragmentos/footer.php';
+    include 'files/parts/footer.php';
     ?>
 
     <script src="/dist/js/menu.js"></script>

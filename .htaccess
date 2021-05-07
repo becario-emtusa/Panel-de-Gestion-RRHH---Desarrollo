@@ -8,6 +8,9 @@ RewriteRule ^/$ login.php
 RewriteRule ^login$ login.php
 RewriteRule ^inicio$ index.php
 RewriteRule ^solicitudes$ solicitudes.php
-RewriteRule ^logout$ fragmentos/logout.php
 RewriteRule ^consultar-solicitudes$ consulta-solicitudes.php
+RewriteRule ^logout$ files/parts/logout.php
+RewriteRule ^admin/cancelar-solicitud$ cancelar-solicitud.php
 RewriteRule ^admin/modificar-dias$ admin-config.php
+RewriteRule ^admin/crear-solicitudes$ admin-crear-solicitudes.php
+RewriteRule ^admin/gestion-citas$ gestion-citas.php

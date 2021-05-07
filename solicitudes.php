@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <?php
-include "./fragmentos/redirect.php";
-include './fragmentos/cabecera.php';
+include "files/parts/redirect.php";
+include 'files/parts/cabecera.php';
 ?>
 
 <head>
@@ -11,7 +11,7 @@ include './fragmentos/cabecera.php';
 
 <body onload="cargaDatos('<?php echo $_SESSION['login'] ?>');">
     <?php
-    include './fragmentos/menu.php';
+    include 'files/parts/menu.php';
     ?>
     <header class="content-header">
         <div class="container-fluid">
@@ -61,7 +61,7 @@ include './fragmentos/cabecera.php';
                                 <option value="0">Seleccione motivo</option>
                                 <?php
                                 /* Necesario incluir el fichero de conexion a la BBDD */
-                                require_once("./fragmentos/conexionBBDD.php");
+                                require_once("files/conn/conexionBBDD.php");
 
                                 /* Creamos la conexion y lanzamos la consulta previamente diseñada */
                                 $conexion = new conexionBBDD();
@@ -171,11 +171,11 @@ include './fragmentos/cabecera.php';
     </main>
 
     <?php
-    include './fragmentos/footer.php';
+    include 'files/parts/footer.php';
     ?>
 
-    <script src="../../dist/js/realizar-solicitudes.js"></script>
-    <script src="../../dist/js/menu.js"></script>
+    <script src="/dist/js/realizar-solicitudes.js"></script>
+    <script src="/dist/js/menu.js"></script>
 </body>
 
 </html>

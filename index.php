@@ -6,8 +6,8 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-include './fragmentos/redirect.php';
-include './fragmentos/cabecera.php';
+include 'files/parts/redirect.php';
+include 'files/parts/cabecera.php';
 ?>
 
 <head>
@@ -17,21 +17,20 @@ include './fragmentos/cabecera.php';
 
 <body>
     <?php
-    include './fragmentos/menu.php';
+    include 'files/parts/menu.php';
 
     if (isset($_SESSION['login'])) {
         if ($_SESSION['login'] == 'ADMIN') {
-            include './fragmentos/inicio-admin.php';
+            include 'files/parts/inicio-admin.php';
         } else {
-            include './fragmentos/inicio-usuario.php';
+            include 'files/parts/inicio-usuario.php';
         }
     }
 
-    include './fragmentos/footer.php';
+    include 'files/parts/footer.php';
     ?>
 
-    <script src="../../dist/js/inicio-admin.js"></script>
-    <script src="../../dist/js/menu.js"></script>
+    <script src="/dist/js/menu.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once("./conexionBBDD.php");
+require_once("../conn/conexionBBDD.php");
 session_start();
 $usuario = $_POST["usuario"];
 $password = md5($_POST["password"]);

@@ -1,0 +1,253 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+body>main, body>header {
+    transform: translateX(90px);
+}
+
+h2 {
+    font-size: 1.8rem;
+    padding: 1rem 0rem;
+    text-align: center;
+    font-weight: bolder;
+}
+
+h3 {
+    font-size: 1.4rem;
+    padding: 1rem 0rem;
+    text-align: center;
+    font-weight: bolder;
+    margin: 0;
+}
+
+header {
+    padding: 0.5rem 0.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenido principal */
+.acciones-disponibles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 1.5rem 0rem;
+}
+
+.acciones-disponibles > div {
+    padding: 0rem 1rem;
+}
+
+.insercion-citas, .modificar-citas {
+    display: block;
+    background: #e9ecef;
+    border-radius: 16px;
+    margin: 0.5rem 0.5rem;
+    width: 300px;
+    height: 325px;
+}
+
+.title {
+    position: relative;
+    top: 0;
+}
+
+.fecha, .hora, .num-citas, .generar-cita, .aptitud {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0rem 0rem 1.5rem 0rem;
+}
+
+label {
+    margin: 0;
+}
+
+.datos-cita {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input[type="date"] {
+    text-align: center !important;
+}
+
+/* Stepper días */
+.stepper-dias {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+  
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.decremento, .incremento {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    box-shadow: none;
+}
+
+div[class="dias"]>label {
+    width: 210px;
+}
+
+.decremento {
+    border-radius: 8px 0px 0px 8px !important;
+}
+
+.incremento {
+    border-radius: 0px 8px 8px 0px !important;
+}
+
+#dia-input {
+    width: 50px;
+    height: 28px;
+    text-align: center;
+}
+
+#cita-number-mod, #hora_cita {
+    width: 50px;
+    text-align: center;
+}
+
+button {
+    padding: 0.5rem 0.5rem;
+    background-color: var(--emtusa-blue);
+    color: white;
+    border-radius: 6px 6px 6px 6px !important;
+    border: 0;
+    box-shadow: 0px 0px 6px rgb(69,69,69), 0px 0px 32px rgb(222,222,222);
+}
+
+button[class="decremento"], button[class="incremento"] {
+    background-color: initial;
+    color: var(--emtusa-blue);
+}
+
+/* TABLA */
+.mostrar-citas {
+    padding: 0.5rem 0rem;
+    background:#e9ecef;
+    border-radius: 15px;
+    box-shadow: 0px 0px 6px #616568;
+}
+
+.contenido-citas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#cuerpoTabla {
+    font-family: 'Roboto-Mono', monospace;
+}
+
+th {
+    color: black;
+    text-align: center;
+    padding: 0rem 1rem;
+}
+
+td {
+    padding: 0rem 1rem;
+}
+
+tr {
+    text-align: center;
+}
+
+#texto-mensaje {
+    color: rgb(255, 81, 81);
+}
+
+/* Switch Aptitud */
+.switchAptitud {
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+}
+
+.switchAptitud input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--danger);
+    -webkit-transition: .4s;
+    transition: .4s;
+    padding: 8px;
+    color: #fff;
+}
+.slider:before {
+    position: absolute;
+    content: "No Apto";
+    /* height: 26px;
+    width: 26px; */
+    /* left: 78px;
+    bottom: 4px; */
+    bottom: 4px;
+    color: white;
+    background-color: transparent;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--success);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #01aeed;
+}
+
+input:checked + .slider:before {
+    content: "Apto";
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    right: 40px;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}

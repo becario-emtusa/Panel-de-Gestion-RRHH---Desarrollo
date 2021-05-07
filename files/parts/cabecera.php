@@ -28,9 +28,9 @@
   <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
   <!-- daterangepicker -->
   <script src="/plugins/moment/moment.min.js"></script>
-  <!-- <script src="/plugins/daterangepicker/daterangepicker.js"></script> -->
 
   <!-- Bootstrap 4 -->
   <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

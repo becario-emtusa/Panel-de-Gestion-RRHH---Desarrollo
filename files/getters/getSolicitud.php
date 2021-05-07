@@ -1,15 +1,14 @@
 <?php
-/* Necesario incluir el fichero de conexion a la BBDD */
-require_once("./conexionBBDD.php");
+require_once("../conn/conexionBBDD.php");
 session_start();
 
 /* Obtenemos el campo que hemos pasado desde JQuery */
-$departamento = $_POST['departamento'];
+$num_solicitud = $_POST['num_solicitud'];
 
 /* Crecamos la conexion y lanzamos la consulta previamente diseñada */
 $conexion = new conexionBBDD();
 
-$statement = $conexion->getResumenAdmin($departamento);
+$statement = $conexion->getDatosSolicitud($num_solicitud);
 $datos = $statement->fetchAll();
 
 if ($datos != null)

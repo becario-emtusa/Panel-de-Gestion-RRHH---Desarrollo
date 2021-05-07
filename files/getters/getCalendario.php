@@ -1,17 +1,20 @@
 <?php
-/* Necesario incluir el fichero de conexion a la BBDD */
-require_once("./conexionBBDD.php");
+require_once("../conn/conexionBBDD.php");
 session_start();
 
 /* Obtenemos el campo que hemos pasado desde JQuery */
-$dni = $_POST['dni'];
+$dni = $_POST['identificador'];
 $tipoLicencia = $_POST['tipoLicencia'];
 
 /* Crecamos la conexion y lanzamos la consulta previamente diseñada */
 $conexion = new conexionBBDD();
 
 if ($tipoLicencia != 7) {
-    $statement = $conexion->getCalendarioUsuario($dni, $tipoLicencia);
+    if (isset($_POST['admin'])) {
+        $statement = $conexion->getCalendarioUsuario($dni, $tipoLicencia, 1);
+    } else {
+        $statement = $conexion->getCalendarioUsuario($dni, $tipoLicencia);
+    }
 } else {
     $statement = $conexion->getCalendarioCitas($tipoLicencia);
 }

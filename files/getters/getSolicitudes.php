@@ -1,6 +1,5 @@
 <?php
-/* Necesario incluir el fichero de conexion a la BBDD */
-require_once("./conexionBBDD.php");
+require_once("../conn/conexionBBDD.php");
 session_start();
 
 /* Obtenemos el campo que hemos pasado desde JQuery */

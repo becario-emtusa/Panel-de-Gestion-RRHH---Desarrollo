@@ -121,7 +121,6 @@ function representar_tabla(data) {
         div.style.overflow = 'hidden';
         div.innerHTML = "";
     }
-
 }
 
 /* Almacenamos el NIF */
@@ -139,7 +138,7 @@ function generar_tabla(NIF) {
     $.ajax({
         type: "POST",
         data: data_string,
-        url: './fragmentos/getSolicitudes.php',
+        url: '/files/getters/getSolicitudes.php',
         success: function (data) {
             if (data.length > 0) {
                 /* Llamamos a la función que representa la tabla */
@@ -211,7 +210,7 @@ function anular_solicitud() {
     $.ajax({
         type: "POST",
         data: data_string,
-        url: './fragmentos/setAnulacion.php',
+        url: '/files/setters/setAnulacion.php',
         success: function (data) {
             var json_obj = JSON.parse(data);
             json_obj = json_obj[0];

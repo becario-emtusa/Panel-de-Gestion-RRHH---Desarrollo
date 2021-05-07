@@ -154,13 +154,13 @@ function mostrarTextoMotivoPeticion() {
 
 function cargaDatos(NIF) {
     NIF_global = NIF;
-    var dataString = 'dni=' + NIF;
+    var dataString = 'identificador=' + NIF;
 
     $.ajax(
         {
             type: "POST",
             data: dataString,
-            url: './fragmentos/getDatos.php',
+            url: '/files/getters/getDatos.php',
             success: function (data) {
                 var json_obj = JSON.parse(data);
 
@@ -233,14 +233,14 @@ function creaTabla(data) {
 
 function consultaDias() {
     var tipoLicencia = document.getElementById('selectMotivoPeticion').value;
-    var dataString = 'dni=' + NIF_global + "&tipoLicencia=" + tipoLicencia;
+    var dataString = 'identificador=' + NIF_global + "&tipoLicencia=" + tipoLicencia;
     actualizarCalendario();
 
     $.ajax(
         {
             type: "POST",
             data: dataString,
-            url: './fragmentos/getDias.php',
+            url: '/files/getters/getDias.php',
             success: function (data) {
                 creaTabla(JSON.parse(data));
             },
@@ -253,13 +253,13 @@ function consultaDias() {
 
 function actualizarCalendario() {
     var tipoLicencia = document.getElementById('selectMotivoPeticion').value;
-    var dataString = 'dni=' + NIF_global + "&tipoLicencia=" + tipoLicencia;
+    var dataString = 'identificador=' + NIF_global + "&tipoLicencia=" + tipoLicencia;
 
     $.ajax(
         {
             type: "POST",
             data: dataString,
-            url: './fragmentos/getCalendario.php',
+            url: '/files/getters/getCalendario.php',
             success: function (data) {
                 var json_obj = JSON.parse(data);
 
@@ -326,7 +326,7 @@ function mostrar_aviso(mensaje) {
 
 var resultado_solicitud = '-1';
 
-function cerrar_aviso() {
+cerrar_aviso = () => {
     aviso.style.display = 'none';
 
     if (resultado_solicitud == '0') {
@@ -334,7 +334,7 @@ function cerrar_aviso() {
     }
 }
 
-function recogerDatosFormulario() {
+recogerDatosFormulario = () => {
     /* Recogemos la Fecha de Inicio y la Fecha de Fin */
     var fechaIni = new Date($('#inputFecha2').data('daterangepicker').startDate);
     var fechaFin = new Date($('#inputFecha2').data('daterangepicker').endDate);
@@ -359,13 +359,13 @@ function recogerDatosFormulario() {
     var tipoLicencia = document.getElementById('selectMotivoPeticion').value;
 
     /* Preparamos los datos */
-    var dataString = 'dni=' + NIF_global + "&fechaIni=" + fechaIni + "&fechaFin=" + fechaFin + "&tipoLicencia=" + tipoLicencia;
+    var dataString = 'identificador=' + NIF_global + "&fechaIni=" + fechaIni + "&fechaFin=" + fechaFin + "&tipoLicencia=" + tipoLicencia;
 
     $.ajax(
         {
             type: "POST",
             data: dataString,
-            url: './fragmentos/insertarPeticion.php',
+            url: '/files/setters/insertarPeticion.php',
             success: function (data) {
                 /* Recogemos las variables que usaremos para mostrar por pantalla */
                 try {
@@ -375,6 +375,14 @@ function recogerDatosFormulario() {
                     var mensaje = json_obj[0]["mensaje"];
 
                     mostrar_aviso(mensaje);
+
+                    const Speech = new SpeechSynthesisUtterance(mensaje);
+
+                    Speech.volume = 1;
+                    Speech.rate = 1;
+                    Speech.pitch = 1;
+
+                    window.speechSynthesis.speak(Speech);
 
                     resultado_solicitud = valor;
 
@@ -399,11 +407,6 @@ var picker = $('#daterangepicker1').daterangepicker({
     "locale": {
         "format": "DD/MM/YYYY",
         "separator": " - ",
-        "applyLabel": "Guardar",
-        "cancelLabel": "Cancelar",
-        "fromLabel": "From",
-        "toLabel": "To",
-        "customRangeLabel": "Custom",
         "weekLabel": "Sem",
         "firstDay": 1,
         "daysOfWeek": [
@@ -430,6 +433,8 @@ var picker = $('#daterangepicker1').daterangepicker({
             "Diciembre"
         ]
     },
+    "minDate": moment(),
+    "maxDate": moment().add(33, 'days'),
     "singleDatePicker": true,
     "autoApply": true,
     "maxSpan": {
@@ -439,9 +444,8 @@ var picker = $('#daterangepicker1').daterangepicker({
     "opens": "center",
     "drops": "auto",
     "parentEl": "#daterangepicker1-container",
-    "autoApply": true,
     "isInvalidDate": function (date) {
-        var valores = getColorporFecha(date);
+        var valores = getColorporFecha(date, true);
 
         if (valores != undefined) {
             switch (valores["Activo"] + "|" + valores["Color"]) {
@@ -471,13 +475,11 @@ var picker = $('#daterangepicker1').daterangepicker({
                     return "";
             }
         }
-    },
-    "minDate": moment(),
-    "startDate": moment(),
+    }
 });
 
 // range update listener
-picker.on('apply.daterangepicker', function (ev, picker) {
+picker.on('apply.daterangepicker', (ev, picker) => {
     var select = document.querySelector('#selectHoras');
     select.innerHTML = '';
     var valores = getHoraporFecha(picker.startDate);
